@@ -1,4 +1,4 @@
-use hex::{decode};
+use hex::decode;
 
 pub fn decode_hex(hex_str: &str) -> Result<Vec<u8>, String> {
     decode(hex_str).map_err(|e| e.to_string())
@@ -23,7 +23,8 @@ pub fn swap_endian_u32(num: u32) -> [u8; 4] {
 }
 
 pub fn parse_satoshis(input: &str) -> Result<u64, String> {
-    input.parse::<u64>()
+    input
+        .parse::<u64>()
         .map_err(|_| "Invalid satoshi amount".to_string())
 }
 //script type
